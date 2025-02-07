@@ -1,0 +1,205 @@
+/* signup.css */
+
+/* استایل کلی */
+.container {
+    background: #FFFFFF;
+    padding: 45px;
+    padding-right: 17px;
+    border-radius: 8px;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: right;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .container {
+    background: #394043;
+}
+
+h1 {
+    text-align: center;
+    color: inherit;
+    margin-bottom: 20px;
+}
+
+label {
+    margin: 10px 0 5px;
+    color: inherit;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    font-size: 14px;
+    background: #F6F4F0;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.dark-mode input::placeholder{
+    color: #ddd;
+}
+
+body.dark-mode input {
+    background: #4C585B;
+    color: white;
+    border-color: #79D7BE;
+}
+
+button {
+    width: 90%;
+    padding: 10px;
+    margin-right:25px;
+    background: #4DA1A9;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+button:hover {
+    background: #79D7BE;
+}
+
+/* کپچا */
+#CAPTCHA{
+    margin-left: 10px;
+}
+.captcha-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.captcha-code {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    border-radius: 15px;
+    user-select: none;
+}
+
+.captcha-refresh {
+    background-color: inherit;
+    margin-right: 10px;
+    width: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #2e5077;
+}
+
+.captcha-refresh:hover {
+    text-decoration: underline;
+}
+
+.dark-mode .captcha-code{
+    color: #02363a;
+}
+.dark-mode .captcha-refresh{
+    color: #4DA1A9;
+}
+
+.links p {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.links a {
+    color: #4da1a9;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* دکمه بازگشت */
+#back-button {
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Estedad';
+    font-size: 25px;
+    text-decoration: none;
+    margin-top: 15px;
+    margin-right: 10px;
+    padding: 3px;
+    color: azure; 
+    background-color: #4DA1A9;
+    width: 55px;
+    height: 30px;
+    box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.1);
+    display: inline-flex; /* برای تراز کردن آیکون در مرکز */
+    justify-content: center; /* مرکز چین کردن آیکون افقی */
+    align-items: center;
+}
+
+#back-button:hover {
+    background-color: #2e5077;
+}
+
+#back-button .icon{
+    height: 35px;
+    width: 35px;
+}
+
+.dark-mode #back-button{
+    background-color:#394043 ;
+    color: #79D7BE;
+}
+.dark-mode #back-button:hover{
+    background-color:#4da1a9 ;
+    color: azure;
+}
+
+
+/* منو */
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    overflow: hidden;
+    direction: ltr;
+    border-radius: 4px;
+    margin-top: 0%;
+}
+.navbar li{
+    float: left;
+}
+.navbar li:last-child{
+    margin-left: auto;
+}
+.messages {
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: 'Estedad', sans-serif;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+.message.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}

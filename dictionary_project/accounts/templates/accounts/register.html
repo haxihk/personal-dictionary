@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت‌نام</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <style>
+        /* تغییر فونت دکمه ورود به Estedad */
+        .btn-login {
+            font-family: 'Estedad', sans-serif;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <nav class="navbar">
+        <ul>
+            <li>
+                <span class="theme-switch">
+                    <span>تغییر تم</span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider"></span>
+                    </label>
+                </span>
+            </li>
+            <li>
+                <a href={% url "login" %}><button id="back-button">
+                    <img src="{% static 'images/right-arrow (3).png' %}" alt="back-button" class="icon">
+                </button></a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="message {{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="container">
+            <h1>ثبت‌نام</h1>
+            <form id="signup-form" method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-login">ثبت‌نام</button>
+            </form>
+            <hr>
+            <div class="links">
+                <p>حساب کاربری دارید؟ <a href="{% url 'login' %}">وارد شوید</a></p>
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'js/theme.js' %}"></script>
+</body>
+</html>

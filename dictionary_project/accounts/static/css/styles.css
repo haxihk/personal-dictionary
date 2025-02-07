@@ -1,0 +1,136 @@
+/* styles.css */
+
+/* تعریف فونت استعدادی */
+@font-face {
+    font-family: 'Estedad';
+    src: url('fonts/Estedad-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Estedad', sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    text-align: right;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 100%;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    input, button {
+        font-size: 14px;
+    }
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar li {
+        margin-bottom: 10px;
+    }
+}
+
+
+
+/* حالت لایت مود */
+body.light-mode {
+    background-color: #F6F4F0;
+    color: #2E5077;
+}
+
+/* حالت دارک مود */
+body.dark-mode {
+    background-color: #4C585B;
+    color: #79D7BE;
+}
+/* دکمه تغییر تم */
+/* Switch Button برای تغییر تم */
+.theme-switch {
+    display: flex;
+    align-items: center;
+    justify-content: flex;
+    gap: 10px;
+    direction: rtl;
+}
+
+.theme-switch span {
+    font-size: 16px;
+    color: inherit;
+}
+
+.switch {
+    position: relative;
+    display: inline-flex;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #79D7BE;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4DA1A9;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+.messages {
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: 'Estedad', sans-serif;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+.message.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ویرایش کلمه</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/manage.css' %}">
+    <style>
+        button[type="submit"] {
+            font-size: 18px;
+            font-family: 'Estedad';
+        }
+        span {
+            font-weight: bold;
+        }
+        input {
+            font-family: 'Estedad';
+        }
+        /* استایل جدید برای لینک بازگشت */
+        .back-to-manage {
+            color: #4DA1A9; /* هم‌رنگ دکمه‌های دیگر */
+            text-decoration: none; /* حذف خط زیر */
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+        .back-to-manage:hover {
+            color: #79D7BE; /* تغییر رنگ هنگام هاور */
+        }
+    </style>
+</head>
+
+<body class="light-mode">
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'manage' %}"><button id="back-button"><img src="{% static 'images/sign-out.png' %}" alt="home-button" class="icon"></button></a></li>
+            <li><a href="{% url 'search' %}" class="btn btn-secondary"><button id="word-search-btn">جستجوی کلمات</button></a></li>
+            <li>
+                <a href="{% url 'statistics' %}" class="btn btn-secondary">
+                    <button id="statistics-btn">گزارش آماری</button>
+                </a>
+            </li>
+            <li><span class="theme-switch">  
+                <span>تغییر تم</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider"></span>
+                </label>
+            </span></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="user-info">
+            <p>کاربر وارد شده: <strong>{{ username }}</strong></p>
+        </div>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="message {{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="container">
+            <h1>ویرایش کلمه</h1>
+            <form id="edit-form" method="POST" action="{% url 'edit_word' word.id %}">
+                {% csrf_token %}
+                <label for="word">کلمه:</label>
+                <input type="text" id="word" name="word" value="{{ word.word }}" required>
+
+                <label for="definition">معنی:</label>
+                <input type="text" id="definition" name="definition" value="{{ word.definition }}" required>
+
+                <button type="submit" class="btn">ذخیره تغییرات</button>
+            </form>
+            <hr>
+            <a href="{% url 'manage' %}" class="back-to-manage">← بازگشت به مدیریت کلمات</a>
+        </div>
+    </main>
+
+    <script src="{% static 'js/theme.js' %}"></script>
+</body>
+</html>

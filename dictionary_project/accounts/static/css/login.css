@@ -1,0 +1,172 @@
+/* login.css */
+
+/* استایل عمومی */
+body {
+    font-family: 'Estedad', sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    text-align: right;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    background: #FFFFFF;
+    padding: 45px;
+    padding-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: right;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .container {
+    background: #394043;
+}
+
+h1 {
+    text-align: center;
+    color: inherit;
+    margin-bottom: 20px;
+}
+
+label {
+    margin: 10px 0 5px;
+    color: inherit;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    font-size: 14px;
+    background: #F6F4F0;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.dark-mode input::placeholder{
+    color: #ddd;
+}
+
+body.dark-mode input {
+    background: #4C585B;
+    color: white;
+    border-color: #79D7BE;
+}
+
+button {
+    width: 90%;
+    padding: 10px;
+    margin-right: 25px;
+    background: #4DA1A9;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: #79D7BE;
+}
+
+/* کپچا */
+#CAPTCHA{
+    margin-left: 10px;
+}
+.captcha-container {
+    display:flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.captcha-code {
+    font-family: 'Estedad';
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    border-radius: 15px;
+    user-select: none;
+}
+
+.captcha-refresh {
+    margin-left: 10px;
+    padding-right: 13px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #2e5077;
+}
+
+.captcha-refresh:hover {
+    text-decoration: underline;
+}
+
+.dark-mode .captcha-code{
+    color: #3b7f85;
+}
+
+.dark-mode .captcha-refresh{
+    color: #4DA1A9;
+}
+
+.links p {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.links a {
+    color: #4DA1A9;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    overflow: hidden;
+    direction: ltr;
+    border-radius: 4px;
+    margin-top: 0%;
+}
+.navbar li{
+    float: left;
+}
+.messages {
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: 'Estedad', sans-serif;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+.message.success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جستجوی کلمات</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <style>
+        #search-btn {
+            font-family: 'Estedad';
+            font-size: 1rem;
+            text-decoration: none;
+            padding: 8px 16px;
+            color: #fff;
+            background-color: #4da1a9;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #search-btn:hover {
+            background-color: #2e5077;
+        }
+
+        body.dark-mode #search-btn {
+            background-color: #79D7BE;
+        }
+
+        body.dark-mode #search-btn:hover {
+            background-color: #4da1a9;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'login' %}"><button id="back-button"><img src="{% static 'images/sign-out.png' %}" alt="home-button" class="icon"></button></a></li>
+            <li><a href="{% url 'manage' %}" class="btn btn-secondary"><button id="word-manage-btn">مدیریت کلمات</button></a></li>
+            <li><span class="theme-switch">
+                <span>تغییر تم</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider"></span>
+                </label>
+            </span></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <h1>جستجوی کلمات</h1>
+            <form method="get" action="{% url 'search' %}">
+                <input type="text" name="query" id="searchInput" placeholder="کلمه‌ای به فارسی یا انگلیسی جستجو کنید" value="{{ query }}">
+                <button id="search-btn" type="submit">جستجو</button>
+            </form>
+            <ul id="searchResults" class="word-list">
+                <ul id="searchResults" class="word-list">
+                    {% if results %}
+                        {% for word in results %}
+                            <li><strong>{{ word.word }}</strong>: {{ word.definition }}</li>
+                        {% endfor %}
+                    {% else %}
+                        {% if query %}
+                            <li>نتیجه‌ای یافت نشد.</li>
+                        {% endif %}
+                    {% endif %}
+                </ul>
+                
+            </ul>            
+        </div>
+    </main>
+    <script src="{% static 'js/theme.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+/* statistics.css */
+
+/* استایل کلی */
+.container {
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .container {
+    background: #394043;
+}
+
+h1 {
+    text-align: center;
+    color: inherit;
+    margin-bottom: 30px;
+}
+
+/* کارت‌های آماری */
+.stat-card {
+    background: #F6F4F0;
+    margin: 15px auto;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: inherit;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+
+.stat-users {
+    background-color: #2e5077;
+    color: white;
+    animation-delay: 0.2s;
+}
+
+.stat-words {
+    background-color:#4DA1A9 ;
+    color: white;
+    animation-delay: 0.4s;
+}
+
+.stat-most-searched {
+    background-color: #79D7BE;
+    color: white;
+    animation-delay: 0.6s;
+}
+
+.stat-card .icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* دکمه بازگشت */
+#back-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Estedad';
+    text-decoration: none;
+    color: azure; 
+    background-color: #ddbdbd;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    height: 50px;
+    width: 50px;
+}
+
+#back-button .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+#back-button:hover {
+    background-color:#2e5077 ;
+}
+.dark-mode #back-button{
+    background-color:#4da1a9 ;
+}
+.dark-mode #back-button:hover{
+    background-color:#394043 ;
+}
+/* دکمه جستجو */
+#word-search-btn {
+    cursor: pointer;
+    font-family: 'Estedad';
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 4px;
+    color: azure; 
+    background-color: #4da1a9;
+    width: 120px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    border: none;
+    border-radius: 25px;
+    margin-left: 20px;
+}
+
+#word-search-btn:hover {
+    background-color:#2e5077 ;
+}
+
+.dark-mode #word-search-btn{
+    background-color:#4da1a9 ;
+}
+
+.dark-mode #word-search-btn:hover{
+    background-color:#394043 ;
+}
+
+/* دکمه مدیریت */
+#word-manage-btn {
+    cursor: pointer;
+    font-family: 'Estedad';
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 4px;
+    color: azure; 
+    background-color: #4da1a9;
+    width: 120px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+#word-manage-btn:hover {
+    background-color:#2e5077 ;
+}
+
+.dark-mode #word-manage-btn{
+    background-color:#4da1a9 ;
+}
+.dark-mode #word-manage-btn:hover{
+    background-color:#394043 ;
+}
+
+/* منو */
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    overflow: hidden;
+    direction: ltr;
+    border-radius: 4px;
+    margin-top: 0%;
+}
+.navbar li{
+    float: left;
+}
+.navbar li:last-child{
+    margin-left: auto;
+}

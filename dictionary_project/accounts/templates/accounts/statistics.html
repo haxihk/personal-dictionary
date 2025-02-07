@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گزارش آماری</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/statistics.css' %}">
+    <style>
+        span {
+            font-weight: bold;
+            display: inline;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'login' %}"><button id="back-button"><img src="{% static 'images/sign-out.png' %}" alt="home-button" class="icon"></button></a></li>
+            <li><a href="{% url 'search' %}" class="btn btn-secondary"><button id="word-search-btn">جستجوی کلمات</button></a></li>
+            <li><a href="{% url 'manage' %}" class="btn btn-secondary"><button id="word-manage-btn">مدیریت کلمات</button></a></li>
+            <li><span class="theme-switch">
+                <span>تغییر تم</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider"></span>
+                </label>
+            </span></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <h1>گزارش آماری</h1>
+            <div class="row">
+                <div class="stat-card stat-users">
+                    <div class="icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h3>تعداد کاربران</h3>
+                    <h1>{{ total_users }}</h1>
+                </div>
+    
+                <div class="stat-card stat-words">
+                    <div class="icon">
+                        <i class="bi bi-book-half"></i>
+                    </div>
+                    <h3>تعداد کلمات</h3>
+                    <h1>{{ total_words }}</h1>
+                </div>
+    
+                <div class="stat-card stat-most-searched">
+                    <div class="icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+                    <h3>محبوب‌ترین کلمه جستجو شده</h3>
+                    <h1>{{ most_searched_word }}</h1>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{% static 'js/theme.js' %}"></script>
+</body>
+</html>
